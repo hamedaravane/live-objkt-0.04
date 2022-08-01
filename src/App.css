@@ -21,3 +21,23 @@ body {
   justify-content: center;
   margin: 50px auto;
 }
+
+@media only screen and (max-width: 912px) {
+  .layout{
+    grid-template-columns: repeat(4, 1fr);
+    margin: 20px auto;
+    row-gap: 20px;
+    column-gap: 20px;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .layout{
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px auto;
+    row-gap: 20px;
+    column-gap: 20px;
+    justify-content: center;
+  }
+}
