@@ -17,6 +17,15 @@ const Post = ({data}) => {
             return creator;
         }
 
+        function getAnalysisCreator() {
+            let creatorAddress = 'unknown'
+            if (data.creator) {
+                creatorAddress = data.creator.address
+            }
+            let nftBikers = 'https://nftbiker.xyz/artist?wallet=' + creatorAddress
+            return nftBikers;
+        }
+
         function getImage() {
             let ipfs = data.token.artifact_uri
             if (data.token.display_uri) {
@@ -81,6 +90,12 @@ const Post = ({data}) => {
                     case 'KALAM':
                         marketPlace = "kalamint";
                         break;
+                    case 'hen marketplace v2':
+                        marketPlace = "HEN";
+                        break;
+                    case 'objktcom marketplace v1':
+                        marketPlace = "OBJKT";
+                        break;
                     default:
                         marketPlace = data.marketplace.name;
                 }
@@ -95,7 +110,9 @@ const Post = ({data}) => {
                     <img className='image' src={getImage()}/>
                 </a>
                 <div className='info'>
-                    <p>{creator()}</p>
+                    <a href={getAnalysisCreator()}>
+                        <p>{creator()}</p>
+                    </a>
                     <p>{data.token.supply} ed.</p>
                 </div>
                 <div className='info'>
