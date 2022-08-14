@@ -3,7 +3,7 @@ import '../components/Post.css';
 
 const Post = ({data}) => {
 
-        function creator() {
+        const creator = () => {
             let creator = 'unknown'
             if (data.creator) {
                 creator = data.creator.address
@@ -17,16 +17,15 @@ const Post = ({data}) => {
             return creator;
         }
 
-        function getAnalysisCreator() {
+        const getAnalysisCreator = () => {
             let creatorAddress = 'unknown'
             if (data.creator) {
                 creatorAddress = data.creator.address
             }
-            let nftBikers = 'https://nftbiker.xyz/artist?wallet=' + creatorAddress
-            return nftBikers;
+            return 'https://nftbiker.xyz/artist?wallet=' + creatorAddress;
         }
 
-        function getImage() {
+        const getImage = () => {
             let ipfs = data.token.artifact_uri
             if (data.token.display_uri) {
                 ipfs = data.token.display_uri
@@ -41,7 +40,7 @@ const Post = ({data}) => {
             return imageUri;
         }
 
-        function royaltyCalc() {
+        const royaltyCalc = () => {
             let royalty = 0;
             if (data.token.royalties[0]) {
                 royalty = (data.token.royalties[0].amount / 10 ** data.token.royalties[0].decimals) * 100
@@ -51,7 +50,7 @@ const Post = ({data}) => {
             return royalty + '%'
         }
 
-        function getLink() {
+        const getLink = () => {
             let url = 'https://objkt.com/asset'
             url = url + '/' + data.fa_contract + '/' + data.token.token_id
             if (data.fa.name === 'hic et nunc') {
@@ -63,7 +62,7 @@ const Post = ({data}) => {
             return url
         }
 
-        function priceCalc() {
+        const priceCalc = () => {
             let price = ''
             if (data.price) {
                 price = data.price / 1000000 + ' tz'
@@ -71,7 +70,7 @@ const Post = ({data}) => {
             return price
         }
 
-        function getMarketplace() {
+        const getMarketplace = () => {
             let marketPlace = ''
             if (data.marketplace.name) {
                 switch (data.marketplace.name) {
@@ -107,7 +106,7 @@ const Post = ({data}) => {
         return (
             <div className='objkt'>
                 <a href={getLink()} target="_blank" rel="noopener noreferrer">
-                    <img className='image' src={getImage()}/>
+                    <img className='image' src={getImage()} alt={'image'}/>
                 </a>
                 <div className='info'>
                     <a href={getAnalysisCreator()}>
