@@ -105,11 +105,11 @@ const Post = ({data}) => {
 
         return (
             <div className='objkt'>
-                <a href={getLink()} target="_blank" rel="noopener noreferrer">
+                <a href={getLink()} target="_blank">
                     <img className='image' src={getImage()} alt={'image'}/>
                 </a>
                 <div className='info'>
-                    <a href={getAnalysisCreator()}>
+                    <a href={getAnalysisCreator()} target="_blank">
                         <p>{creator()}</p>
                     </a>
                     <p>{data.token.supply} ed.</p>
