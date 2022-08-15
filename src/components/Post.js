@@ -54,7 +54,7 @@ const Post = ({data}) => {
             let url = 'https://objkt.com/asset'
             url = url + '/' + data.fa_contract + '/' + data.token.token_id
             if (data.fa.name === 'hic et nunc') {
-                url = 'https://hic.af/o/' + data.token.token_id
+                url = 'https://objkt.com/asset/hicetnunc/' + data.token.token_id
             }
             if (data.marketplace.name === 'fxhash marketplace v1') {
                 url = 'https://www.fxhash.xyz/gentk/' + data.token.token_id
