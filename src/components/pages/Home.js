@@ -27,12 +27,6 @@ function Home() {
     useEffect(() => {
         const myInterval = setInterval(getObjkts, 5000);
 
-        return () => {
-            clearInterval(myInterval);
-        };
-    }, []);
-
-    useEffect(() => {
         if ("caches" in window) {
             caches.keys().then((names) => {
                 names.forEach((name) => {
@@ -40,6 +34,10 @@ function Home() {
                 });
             });
         }
+
+        return () => {
+            clearInterval(myInterval);
+        };
     }, []);
 
     return (
