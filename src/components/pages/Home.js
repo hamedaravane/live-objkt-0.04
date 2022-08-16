@@ -32,6 +32,16 @@ function Home() {
         };
     }, []);
 
+    useEffect(() => {
+        if ("caches" in window) {
+            caches.keys().then((names) => {
+                names.forEach((name) => {
+                    caches.delete(name);
+                });
+            });
+        }
+    }, []);
+
     return (
         <div className='layout'>{objkts.map(item => <Post data={item} />)}</div>
     )

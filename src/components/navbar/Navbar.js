@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Navbar.css'
 import Home from '../pages/Home'
 import About from '../pages/About'
