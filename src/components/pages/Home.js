@@ -20,20 +20,13 @@ function Home() {
             })
         })
         let objkts = await results.json();
+        
         setObjkts(objkts.data.event)
         console.log(objkts.data.event)
     }
 
     useEffect(() => {
         const myInterval = setInterval(getObjkts, 5000);
-
-        if ("caches" in window) {
-            caches.keys().then((names) => {
-                names.forEach((name) => {
-                    caches.delete(name);
-                });
-            });
-        }
 
         return () => {
             clearInterval(myInterval);

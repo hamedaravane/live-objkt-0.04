@@ -1,5 +1,6 @@
 import React from 'react';
 import '../components/Post.css';
+import Image from './Image';
 
 const Post = ({data}) => {
 
@@ -23,21 +24,6 @@ const Post = ({data}) => {
                 creatorAddress = data.creator.address
             }
             return 'https://nftbiker.xyz/artist?wallet=' + creatorAddress;
-        }
-
-        const getImage = () => {
-            let ipfs = data.token.artifact_uri
-            if (data.token.display_uri) {
-                ipfs = data.token.display_uri
-            }
-            if (data.token.thumbnail_uri) {
-                ipfs = data.token.thumbnail_uri
-            }
-            let imageUri = '';
-            if (ipfs) {
-                imageUri = ipfs.replace("ipfs://", "https://ipfs.io/ipfs/")
-            }
-            return imageUri;
         }
 
         const royaltyCalc = () => {
@@ -106,7 +92,7 @@ const Post = ({data}) => {
         return (
             <div className='objkt'>
                 <a href={getLink()} target="_blank">
-                    <img className='image' src={getImage()} alt={'image'}/>
+                    <Image json = {data.token}/>
                 </a>
                 <div className='info'>
                     <a href={getAnalysisCreator()} target="_blank">
