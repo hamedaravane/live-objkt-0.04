@@ -20,7 +20,7 @@ function Home() {
             })
         })
         let objkts = await results.json();
-        
+
         setObjkts(objkts.data.event)
         console.log(objkts.data.event)
     }
@@ -34,7 +34,7 @@ function Home() {
     }, []);
 
     return (
-        <div className='layout'>{objkts.map(item => <Post data={item} />)}</div>
+        <div className='layout'>{objkts.map(item => <Post data={item} key={item.token.pk} />)}</div>
     )
 }
 

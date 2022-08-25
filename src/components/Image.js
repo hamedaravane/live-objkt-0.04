@@ -19,28 +19,8 @@ function Image({ json }) {
         imageUri = ipfs.replace("ipfs://", "https://ipfs.io/ipfs/")
     }
 
-
-
-    const [loaded, setLoaded] = useState(false);
-
     return (
-        <div className='image'>
-            {loaded ? null : (
-                <SkeletonTheme color="#202020" highlightColor="#444">
-                <section>
-                  <Skeleton height={198} width={198} />
-                </section>
-              </SkeletonTheme>
-            )}
-            <SkeletonTheme baseColor="#202020" highlightColor="#444">
-            <img
-                className='image'
-                style={loaded ? {} : { display: 'none' }}
-                src={imageUri}
-                onLoad={() => setLoaded(true)}
-            />
-            </SkeletonTheme>
-        </div>
+        <img className='image' src={imageUri}/>
     )
 }
 

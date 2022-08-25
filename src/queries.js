@@ -1,5 +1,5 @@
 export const allObjkts = `query MyQuery {
-  event(order_by: {timestamp: desc}, where: {event_type: {_eq: "ask_purchase"}, token: {supply: {_lte: "50"}}}, limit: 36) {
+  event(order_by: {timestamp: desc}, where: {event_type: {_eq: "ask_purchase"}, token: {supply: {_lte: "50"}}}, limit: 18) {
     amount
     creator {
       address
