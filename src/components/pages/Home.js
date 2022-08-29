@@ -33,8 +33,17 @@ function Home() {
         };
     }, []);
 
+
+
     return (
-        <div className='layout'>{objkts.map(item => <Post data={item} key={item.token.pk} />)}</div>
+        <div className='layout'>
+            {objkts.map(item =>
+                <Post
+                    data={item}
+                    key={item.token.pk + Math.floor(Math.random() * 1000)}
+                />
+            )}
+        </div>
     )
 }
 
