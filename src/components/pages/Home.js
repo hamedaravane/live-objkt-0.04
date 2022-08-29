@@ -26,7 +26,8 @@ function Home() {
     }
 
     useEffect(() => {
-        const myInterval = setInterval(getObjkts, 5000);
+        getObjkts();
+        const myInterval = setInterval(getObjkts, 15000);
 
         return () => {
             clearInterval(myInterval);
